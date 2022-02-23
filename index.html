@@ -17,7 +17,7 @@
                 color: white;
             }
             .resize_fit_center {
-                max-width: 50%;
+                max-width: 100%;
                 max-height: 80%;
                 position: absolute;
                 top: 50%;
@@ -52,15 +52,21 @@
             }
         }
         </style>
+        <script>
+            function submitAnswer() {
+                var value = document.getElementById('answer').value.toUpperCase();
+                console.log('Attempt: ' + value);
+            }
+        </script>
     </head>
     <body>
-        <div class="resize_fit_center" style="text-align: center;">
-            <img src="SamFace.png" class="rocking with_shadow" style="max-width: 100%; max-height: 80%;" />
+        <div class="resize_fit_center" style="text-align: center; border: solid 1px red">
+            <img src="SamFace.png" class="rocking with_shadow" style="position: relative; left: 20%; max-width: 80%; max-height: 80%;" />
+            <img src="SorryNo.png" class="" style="position: absolute; width: 40%; left: 5%; top: 20%;" />
             
             <p>
                 <input type="text" id="answer" name="answer" style="text-transform:uppercase" />
-                <input type="button" id="submit" name="submit" onclick="submitAnswer();" value="submit" />
-
+                <input type="button" id="submit" name="submit" onclick="submitAnswer()" value="submit" />
             </p>
             <!-- 
                 Yes, it's not very secure - it just needs to work...
