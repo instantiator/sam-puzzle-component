@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Galleriam - redirection</title>
+
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            body {
+                background-color: purple;
+                color: lightgrey;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+            }
+            .resize_fit_center {
+                max-width: 50%;
+                max-height: 80%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform-origin: center center;
+                transform: translate(-50%, -50%);
+            }
+            .just_center {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform-origin: center center;
+                transform: translate(-50%, -50%);
+            }
+            .with_shadow {
+                -webkit-filter: drop-shadow(5px 5px 5px #222);
+                filter: drop-shadow(5px 5px 5px #222);
+            }
+            .rocking {
+                animation: rocking 1s infinite ease-in-out;
+            }
+
+        @keyframes rocking {
+            0% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+            100% {
+                transform: rotate(-5deg);
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <div class="resize_fit_center" style="text-align: center;">
+            <img src="SamFace.png" class="rocking with_shadow" style="max-width: 100%; max-height: 80%;" />
+            
+            <p>
+                <input type="text" id="password" />
+
+            </p>
+            <!-- https://photos.app.goo.gl/gfTkdAgtHb4Zt8xC7 -->
+        </div>
+    </body>
+</html>
