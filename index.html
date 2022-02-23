@@ -16,6 +16,11 @@
                 text-decoration: none;
                 color: white;
             }
+            input {
+                font-size: xx-large;
+                margin: 5px;
+                max-width: 70%;
+            }
             .resize_fit_center {
                 max-width: 100%;
                 max-height: 80%;
@@ -54,18 +59,26 @@
         </style>
         <script>
             function submitAnswer() {
+                var password = 'REMEMBER';
+                var redirect_url = 'https://photos.app.goo.gl/gfTkdAgtHb4Zt8xC7';
                 var value = document.getElementById('answer').value.toUpperCase();
                 console.log('Attempt: ' + value);
+                if (value === password) {
+                    document.getElementById("no").style.visibility = "hidden";
+                    window.location.href = redirect_url;
+                } else {
+                    document.getElementById("no").style.visibility = "";
+                }
             }
         </script>
     </head>
     <body>
-        <div class="resize_fit_center" style="text-align: center; border: solid 1px red">
+        <div class="resize_fit_center" style="text-align: center;">
             <img src="SamFace.png" class="rocking with_shadow" style="position: relative; left: 20%; max-width: 80%; max-height: 80%;" />
-            <img src="SorryNo.png" class="" style="position: absolute; width: 40%; left: 5%; top: 20%;" />
+            <img src="SorryNo.png" id="no" style="visibility: hidden; position: absolute; width: 40%; left: 5%; top: 20%;" />
             
             <p>
-                <input type="text" id="answer" name="answer" style="text-transform:uppercase" />
+                <input type="text" id="answer" name="answer" style="text-transform:uppercase;" />
                 <input type="button" id="submit" name="submit" onclick="submitAnswer()" value="submit" />
             </p>
             <!-- 
@@ -74,5 +87,14 @@
                 https://photos.app.goo.gl/gfTkdAgtHb4Zt8xC7 
             -->
         </div>
+
+        <script>
+            document.getElementById('answer').addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("submit").click();
+                }
+            });
+        </script>
     </body>
 </html>
