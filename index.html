@@ -61,7 +61,7 @@
             function submitAnswer() {
                 var password = 'REMEMBER';
                 var redirect_url = 'https://photos.app.goo.gl/gfTkdAgtHb4Zt8xC7';
-                var value = document.getElementById('answer').value.toUpperCase();
+                var value = document.getElementById('answer').value.trim().toUpperCase();
                 console.log('Attempt: ' + value);
                 if (value === password) {
                     document.getElementById("no").style.visibility = "hidden";
